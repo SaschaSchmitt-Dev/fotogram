@@ -6,25 +6,143 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fotogram</title>
 
+    <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="./css/variables.css">
     <link rel="stylesheet" href="./css/style.css">
+
+    <script src="./js/script.js" defer></script>
 
 </head>
 
 <body>
 
     <header>
-
+        <div>
+            <img src="./assets/icons/fotogram_logo.svg" alt="Fotogram Logo">
+        </div>
     </header>
 
     <main>
 
+        <h1>Your personal photo album</h1>
 
+        <section class="preview_section">
+
+            <button onclick="photo_view_dialog()">
+                <img src="./assets/img/001_Andamanensee_Lagune_mit_Kalksteinfelsen.jpg" alt="Photo 01"
+                    class="img_preview img_001" id="chosen_photo001">
+            </button>
+
+            <button onclick="photo_view_dialog()">
+                <img src="./assets/img/002_Longtailboot_am_Phi_Phi_Strand.jpg" alt="Photo 02"
+                    class="img_preview img_002" id="chosen_photo002">
+            </button>
+
+            <button onclick="photo_view_dialog()">
+                <img src="./assets/img/003_Dschungelpfad_im_suedthailaendischen_Regenwald.jpg" alt="Photo 03"
+                    class="img_preview img_003" id="chosen_photo003">
+            </button>
+
+            <button onclick="photo_view_dialog()">
+                <img src="./assets/img/004_Tuerkisfarbene_Bucht_bei_Krabi.jpg" alt="Photo 04"
+                    class="img_preview img_005" id="chosen_photo004">
+            </button>
+
+            <button onclick="photo_view_dialog()">
+                <img src="./assets/img/005_Reisterrassen_im_Norden_von_Chiang_Mai.jpg" alt="Photo 05"
+                    class="img_preview img_006" id="chosen_photo005">
+            </button>
+
+            <button onclick="photo_view_dialog()">
+                <img src="./assets/img/006_Antiker_Tempelkomplex_im_Dschungel.jpg" alt="Photo 06"
+                    class="img_preview img_004" id="chosen_photo006">
+            </button>
+
+            <button onclick="photo_view_dialog()">
+                <img src="./assets/img/007_Wasserfall_im_Khao_Sok_Nationalpark.jpg" alt="Photo 07"
+                    class="img_preview img_007" id="chosen_photo007">
+            </button>
+
+            <button onclick="photo_view_dialog()">
+                <img src="./assets/img/008_Tempelblick_mit_Vulkanpanorama.jpg" alt="Photo 08"
+                    class="img_preview img_008" id="chosen_photo008">
+            </button>
+
+            <button onclick="photo_view_dialog()">
+                <img src="./assets/img/009_Kuestenpfad_am_Railay_Beach_beim_Sonnenuntergang.jpg" alt="Photo 09"
+                    class="img_preview img_009" id="chosen_photo009">
+            </button>
+
+            <button onclick="photo_view_dialog()">
+                <img src="./assets/img/010_Lagune_mit_Longtailboot_und_Karstfelsen.jpg" alt="Photo 10"
+                    class="img_preview img_010" id="chosen_photo010">
+            </button>
+
+            <button onclick="photo_view_dialog()">
+                <img src="./assets/img/011_Tropischer_Wasserfall_im_Regenwald.jpg" alt="Photo 11"
+                    class="img_preview img_011" id="chosen_photo011">
+            </button>
+
+            <button onclick="photo_view_dialog()">
+                <img src="./assets/img/012_Makakenaffe_im_thailaendischen_Dschungel.jpg" alt="Photo 12"
+                    class="img_preview img_012" id="chosen_photo012">
+            </button>
+
+            <button onclick="photo_view_dialog()">
+                <img src="./assets/img/013_Mehrstufiger_Wasserfall_im_Nationalpark.jpg" alt="Photo 13"
+                    class="img_preview img_013" id="chosen_photo013">
+            </button>
+
+            <button onclick="photo_view_dialog()">
+                <img src="./assets/img/014_Dschungelpfad_entlang_eines_Bergbachs.jpg" alt="Photo 14"
+                    class="img_preview img_014" id="chosen_photo014">
+            </button>
+
+            <button onclick="photo_view_dialog()">
+                <img src="./assets/img/015_Waran_im_thailaendischen_Regenwald.jpg" alt="Photo 15"
+                    class="img_preview img_015" id="chosen_photo015">
+            </button>
+
+            <button onclick="photo_view_dialog()">
+                <img src="./assets/img/016_Waldtempel_auf_einem_Dschungelpfad.jpg" alt="Photo 16"
+                    class="img_preview img_016" id="chosen_photo016">
+            </button>
+
+            <button onclick="photo_view_dialog()">
+                <img src="./assets/img/017_Affe_auf_Baumast_im_Tropenwald.jpg" alt="Photo 17"
+                    class="img_preview img_017" id="chosen_photo017">
+            </button>
+
+            <button onclick="photo_view_dialog()">
+                <img src="./assets/img/018_Elefant_am_Wasserfall_im_Norden_Thailands.jpg" alt="Photo 18"
+                    class="img_preview img_018" id="chosen_photo018">
+            </button>
+
+        </section>
+
+        <dialog id="chosen_photo_dialog" class="full_view_dialog">
+
+            <div class="full_view_top">
+                <h2 id="chosen_photo_name">Platzhalter für den Namen des Photos</h2>
+                <button onclick="close_dialog()">X</button>
+            </div>
+
+            <img src="./assets/img/018_Elefant_am_Wasserfall_im_Norden_Thailands.jpg" alt="" id="chosen_photo"
+                class="chosen_photo">
+
+            <nav class="full_view_nav">
+                <button id="previous_photo">&lt;-&gt;</button>
+                <p class="page_indicator" id="photo_number">1/12</p>
+                <button id="next_photo">&lt;+&gt;</button>
+            </nav>
+
+        </dialog>
 
     </main>
 
     <footer>
-
-
+        <img src="./assets/icons/developer_akademie_logo.svg" alt="DA Logo">
+        <p>© 2023 Developer Akademie GmbH</p>
     </footer>
 
 </body>
