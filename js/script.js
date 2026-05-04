@@ -2,6 +2,8 @@ const dialogRef = document.getElementById("chosen_photo_dialog")
 let total = document.getElementById("photo_index").children.length;
 let name;
 
+
+//* open Dialog
 function photo_view_dialog(clicked) {
     let img = document.getElementById("chosen_photo" + clicked);
     name = img.src.split("/").pop()
@@ -20,11 +22,14 @@ function photo_view_dialog(clicked) {
 }
 
 
+//* close Dialog
 function close_dialog() {
     dialogRef.classList.remove('full_view_dialog_opened');
     dialogRef.close();
 }
 
+
+//* next Photo
 function next_photo() {
     let current = document.getElementById("photo_number").innerHTML.slice(0, 2);
     let next = parseInt(current) + 1;
@@ -48,6 +53,8 @@ function next_photo() {
     document.getElementById("chosen_photo_name").innerText = name;
 }
 
+
+//* previous Photo
 function previous_photo() {
     let current = document.getElementById("photo_number").innerText.slice(0, 2);
     let previous = parseInt(current) - 1;
@@ -70,3 +77,10 @@ function previous_photo() {
     document.getElementById("photo_number").innerHTML = String(previous).padStart(2, "0") + "/" + total;
     document.getElementById("chosen_photo_name").innerText = name;
 }
+
+
+//* Exit Dialog with ESC
+dialogRef.addEventListener("cancel", (e) => {
+    e.preventDefault();
+    close_dialog();
+});
