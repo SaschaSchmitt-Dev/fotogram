@@ -14,5 +14,5 @@
     --photo-border-color: rgba(18, 70, 88, 1);
 
     /** Buttons */
-    --carousel-navigation-color: rgba(253, 91, 79, 1);
+    --carousel-navigation-color: rgba(253, 91, 79, 0.1);
 }
