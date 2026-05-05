@@ -8,7 +8,6 @@ html {
 }
 
 body {
-    height: 100dvh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -47,8 +46,9 @@ main {
     text-align: center;
     max-width: 1440px;
     width: 100%;
+    min-height: calc(100dvh - 200px);
     gap: 80px;
-    padding: 60px 60px;
+    padding: 0px 60px;
 }
 
 h1 {
@@ -81,7 +81,6 @@ h2 {
     max-width: 1170px;
     width: 100%;
     gap: 1rem;
-    padding-bottom: 128px;
 }
 
 .preview_section>button {
@@ -201,8 +200,6 @@ h2 {
 
 /** Footer */
 footer {
-    position: fixed;
-    bottom: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -252,7 +249,7 @@ footer p {
         padding: 20px 0;
     }
 
-    .full_view_dialog_opened {
+    .full_view_dialog_opened[open] {
         padding: 32px 16px;
     }
 
@@ -269,7 +266,7 @@ footer p {
 
     main {
         margin: 0 auto;
-        padding: 40px 0;
+        padding: 24px 0;
         gap: 56px;
     }
 
@@ -283,7 +280,7 @@ footer p {
         padding: 20px 0;
     }
 
-    .full_view_dialog_opened {
+    .full_view_dialog_opened[open] {
         width: 100%;
         height: 100%;
         max-width: 100vw;

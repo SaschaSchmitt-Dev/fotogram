@@ -29,31 +29,28 @@ let total = photos.length;
 //* get all Photos
 function open_album() {
     for (let i = 0; i < photos.length; i++) {
-        let element = createPhotoElement(i);
-        photoIndex.appendChild(element);
+        photoIndex.innerHTML += get_photo_template(i);
     }
 }
 
 
-//* create Elements for Photo Preview
-function createPhotoElement(index) {
+//* Template / innerHTML for Photo Preview
+function get_photo_template(index) {
     let photoNumber = String(index + 1).padStart(2, "0");
+    let name = get_photo_name(photos[index]);
 
-    let button = document.createElement("button");
-    button.classList.add("photo_button");
-
-    button.onclick = function () {
-        photo_view_dialog(index + 1);
-    };
-
-    let img = document.createElement("img");
-    img.id = "chosen_photo" + photoNumber;
-    img.src = "./assets/img/" + photos[index];
-    img.alt = get_photo_name(photos[index]);
-
-    button.appendChild(img);
-
-    return button;
+    return `
+        <button class="photo_button"
+            onclick="photo_view_dialog(${index + 1})"
+            aria-label="Foto öffnen: ${name}">
+            
+            <img 
+                id="chosen_photo${photoNumber}"
+                src="./assets/img/${photos[index]}"
+                alt="${name}">
+                
+        </button>
+    `;
 }
 
 
