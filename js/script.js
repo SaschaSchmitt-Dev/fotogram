@@ -83,6 +83,7 @@ function show_photo(photo_number) {
 function photo_view_dialog(clicked) {
     dialogRef.showModal();
     dialogRef.classList.add("full_view_dialog_opened");
+    document.body.classList.add("no_scroll");
 
     show_photo(clicked);
 }
@@ -91,6 +92,7 @@ function photo_view_dialog(clicked) {
 //* close Dialog
 function close_dialog() {
     dialogRef.classList.remove("full_view_dialog_opened");
+    document.body.classList.remove("no_scroll");
     dialogRef.close();
 }
 
@@ -119,3 +121,8 @@ function previous_photo() {
 
     show_photo(previous);
 }
+
+//* Exit Dialog with ESC
+dialogRef.addEventListener("close", () => {
+    document.body.classList.remove("no_scroll");
+});

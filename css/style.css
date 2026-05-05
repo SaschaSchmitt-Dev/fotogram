@@ -14,6 +14,10 @@ body {
     background-color: var(--standard-background-color);
 }
 
+.no_scroll {
+    overflow: hidden;
+}
+
 /** Header */
 header {
     position: sticky;
