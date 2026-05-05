@@ -1,12 +1,10 @@
-const dialogRef = document.getElementById("chosen_photo_dialog")
+const dialogRef = document.getElementById("chosen_photo_dialog");
 let total = document.getElementById("photo_index").children.length;
-let name;
 
 
-//* open Dialog
-function photo_view_dialog(clicked) {
-    let img = document.getElementById("chosen_photo" + clicked);
-    name = img.src.split("/").pop()
+//* Helpfunction: Extract Photo Name
+function get_photo_name(img) {
+    let name = img.src.split("/").pop()
         .replace(".webp", "")
         .replace(/_/g, " ")
         .replace(/ae/g, "ä")
@@ -14,17 +12,33 @@ function photo_view_dialog(clicked) {
         .replace(/ue/g, "ü")
         .slice(0, 40);
 
-    dialogRef.showModal();
-    dialogRef.classList.add('full_view_dialog_opened');
+    return name;
+}
+
+
+//* Helpfunction: Update Dialog Content
+function show_photo(photo_number) {
+    let photoId = String(photo_number).padStart(2, "0");
+    let img = document.getElementById("chosen_photo" + photoId);
+
     document.getElementById("chosen_photo").src = img.src;
-    document.getElementById("photo_number").innerHTML = clicked + "/" + total;
-    document.getElementById("chosen_photo_name").innerText = name;
+    document.getElementById("photo_number").innerHTML = photoId + "/" + total;
+    document.getElementById("chosen_photo_name").innerText = get_photo_name(img);
+}
+
+
+//* open Dialog
+function photo_view_dialog(clicked) {
+    dialogRef.showModal();
+    dialogRef.classList.add("full_view_dialog_opened");
+
+    show_photo(clicked);
 }
 
 
 //* close Dialog
 function close_dialog() {
-    dialogRef.classList.remove('full_view_dialog_opened');
+    dialogRef.classList.remove("full_view_dialog_opened");
     dialogRef.close();
 }
 
@@ -38,19 +52,7 @@ function next_photo() {
         next = 1;
     }
 
-    let img = document.getElementById("chosen_photo" + String(next).padStart(2, "0"));
-
-    name = img.src.split("/").pop()
-        .replace(".webp", "")
-        .replace(/_/g, " ")
-        .replace(/ae/g, "ä")
-        .replace(/oe/g, "ö")
-        .replace(/ue/g, "ü")
-        .slice(0, 40);
-
-    document.getElementById("chosen_photo").src = img.src;
-    document.getElementById("photo_number").innerHTML = String(next).padStart(2, "0") + "/" + total;
-    document.getElementById("chosen_photo_name").innerText = name;
+    show_photo(next);
 }
 
 
@@ -63,24 +65,5 @@ function previous_photo() {
         previous = total;
     }
 
-    let img = document.getElementById("chosen_photo" + String(previous).padStart(2, "0"));
-
-    name = img.src.split("/").pop()
-        .replace(".webp", "")
-        .replace(/_/g, " ")
-        .replace(/ae/g, "ä")
-        .replace(/oe/g, "ö")
-        .replace(/ue/g, "ü")
-        .slice(0, 40);
-
-    document.getElementById("chosen_photo").src = img.src;
-    document.getElementById("photo_number").innerHTML = String(previous).padStart(2, "0") + "/" + total;
-    document.getElementById("chosen_photo_name").innerText = name;
+    show_photo(previous);
 }
-
-
-//* Exit Dialog with ESC
-dialogRef.addEventListener("cancel", (e) => {
-    e.preventDefault();
-    close_dialog();
-});

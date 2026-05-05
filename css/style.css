@@ -120,14 +120,14 @@ h2 {
     background-color: var(--dialog-background-color);
 }
 
-.full_view_dialog_opened {
+.full_view_dialog_opened[open] {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 56px 64px;
     gap: 48px;
-    border-radius: 40PX;
+    border-radius: 40px;
     border: none;
     margin: auto;
     background-color: var(--dialog-background-color);
