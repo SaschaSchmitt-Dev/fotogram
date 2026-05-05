@@ -124,6 +124,7 @@ h2 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding: 56px 64px;
     gap: 48px;
     border-radius: 40PX;
@@ -176,7 +177,7 @@ h2 {
     height: 60px;
     cursor: pointer;
     background: none;
-    /* border: none; */
+    border: none;
     border-radius: 50%;
 }
 
@@ -295,3 +296,5 @@ footer p {
         padding: 0;
     }
 }
+
+@media screen and (max-width: 480px) {}
